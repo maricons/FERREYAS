@@ -1,0 +1,327 @@
+/* Import a Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(90deg, #35424a, #1f2a33);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+header nav {
+    margin-top: 10px;
+}
+header nav a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+header nav a:hover {
+    background-color: rgba(255,204,0,0.2);
+    border-radius: 4px;
+}
+
+/* Catalogue Container & Cards */
+.catalog-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px 20px;
+}
+.card {
+    background: #fff;
+    border: none;
+    border-radius: 8px;
+    width: 220px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+.card img {
+    width: 100%;
+    height: auto;
+}
+.card-body {
+    padding: 15px;
+    text-align: center;
+}
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #35424a;
+}
+.card-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: green;
+    margin-bottom: 10px;
+}
+.card-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.card-link:hover {
+    color: #0056b3;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    background: linear-gradient(90deg, #35424a, #1f2a33);
+    padding: 10px 0;
+    margin-top: 30px;
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #35424a;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Login Page Styles */
+.login-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+}
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #35424a;
+}
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+.login-container label {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.login-container button {
+    padding: 10px;
+    background: #35424a;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.login-container button:hover {
+    background: #1f2a33;
+}
+.alert {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Product Detail Styles */
+.product-detail-container {
+    max-width: 960px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.product-image {
+    flex: 1 1 300px;
+    text-align: center;
+}
+.product-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+.product-image img:hover {
+    transform: scale(1.05);
+}
+.product-info {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0; /* Initial state for fade-in */
+}
+.product-info h2 {
+    color: #35424a;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+.product-info .product-price {
+    font-size: 1.3rem;
+    color: green;
+    font-weight: bold;
+    margin: 15px 0;
+}
+.product-info .product-description {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 20px;
+}
+.back-button {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #35424a;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+.back-button:hover {
+    background: #1f2a33;
+}
+
+main {
+    flex: 1;
+}
+
+.admin-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.form-buttons button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.form-buttons button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+}
+
+.form-buttons button[type="button"] {
+    background-color: #dc3545;
+    color: white;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.edit-btn, .delete-btn {
+    padding: 0.25rem 0.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.edit-btn {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}

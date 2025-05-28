@@ -1,0 +1,40 @@
+:root {
+    --primary-color: #28a745;
+    --primary-color-rgb: 40, 167, 69;
+    --secondary-color: #218838;
+}
+
+.navbar-ferremas {
+    background-color: var(--primary-color);
+}
+
+.btn-convert {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-convert:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.cart-icon {
+    position: relative;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    display: none;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25);
+} 

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}Carrito - Ferremas{% endblock %}
+
+{% block extra_css %}
+<style>
+    .cart-item {
+        border-bottom: 1px solid #dee2e6;
+        padding: 1rem 0;
+    }
+    .cart-item:last-child {
+        border-bottom: none;
+    }
+    .quantity-control {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .quantity-control button {
+        background: var(--primary-color);
+        border: none;
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .quantity-control input {
+        width: 50px;
+        text-align: center;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        padding: 0.25rem;
+    }
+    .cart-summary {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin-top: 2rem;
+    }
+    .btn-success {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+    .btn-success:hover {
+        background-color: var(--secondary-color);
+        border-color: var(--secondary-color);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h2 class="mb-4">Carrito de Compras</h2>
+
+    <div id="empty-cart-message" style="display: none;">
+        <div class="alert alert-info">
+            <i class="fas fa-shopping-cart me-2"></i>
+            Tu carrito está vacío. <a href="/" class="alert-link">¡Comienza a comprar!</a>
+        </div>
+    </div>
+
+    <div id="cart-items">
+        <!-- Los items del carrito se cargarán dinámicamente aquí -->
+    </div>
+
+    <div class="cart-summary">
+        <div class="row">
+            <div class="col-md-6 offset-md-6">
+                <h4 class="mb-3">Resumen</h4>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">$0</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>IVA (19%):</span>
+                    <span id="cart-tax">$0</span>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <strong>Total:</strong>
+                    <strong id="cart-total">$0</strong>
+                </div>
+                <div class="d-grid">
+                    <button id="checkout-btn" class="btn btn-success" disabled>
+                        <i class="fas fa-lock me-2"></i>Proceder al Pago
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Variables para JavaScript -->
+<input type="hidden" id="user-status" value="{{ 'true' if user and session.get('user_id') else 'false' }}">
+{% endblock %} 

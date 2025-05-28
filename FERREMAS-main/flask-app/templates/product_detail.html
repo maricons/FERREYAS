@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }} - Ferremas{% endblock %}
+
+{% block extra_css %}
+<style>
+    .product-image {
+        max-height: 400px;
+        object-fit: contain;
+    }
+    .quantity-control {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 1rem 0;
+    }
+    .quantity-control button {
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        border: none;
+        background-color: var(--primary-color);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    .quantity-control input {
+        width: 60px;
+        text-align: center;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        padding: 0.25rem;
+    }
+    .btn-add-to-cart {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+    .btn-add-to-cart:hover {
+        background-color: var(--secondary-color);
+        border-color: var(--secondary-color);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ url_for('static', filename='images/products/' + product.image) if product.image else url_for('static', filename='images/products/no-image.jpg') }}" 
+                 class="img-fluid product-image" 
+                 alt="{{ product.name }}">
+        </div>
+        <div class="col-md-6">
+            <h1 class="mb-3">{{ product.name }}</h1>
+            <p class="h3 text-primary mb-4">${{ '{:,.0f}'.format(product.price) }}</p>
+            
+            <div class="quantity-control">
+                <button id="decrease-quantity" type="button">-</button>
+                <input type="number" id="quantity" value="1" min="1" max="99">
+                <button id="increase-quantity" type="button">+</button>
+            </div>
+
+            <button id="add-to-cart-btn" class="btn btn-primary btn-lg w-100 mb-3">
+                <i class="fas fa-cart-plus me-2"></i>Añadir al Carrito
+            </button>
+
+            <div id="add-result"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Variables para JavaScript -->
+<input type="hidden" id="product-id" value="{{ product.id }}">
+<input type="hidden" id="user-status" value="{{ 'true' if user and session.get('user_id') else 'false' }}">
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Control de cantidad
+const decreaseBtn = document.getElementById('decrease-quantity');
+const increaseBtn = document.getElementById('increase-quantity');
+const quantityInput = document.getElementById('quantity');
+
+if (decreaseBtn && increaseBtn && quantityInput) {
+    decreaseBtn.addEventListener('click', () => {
+        let value = parseInt(quantityInput.value);
+        if (value > 1) quantityInput.value = value - 1;
+    });
+    increaseBtn.addEventListener('click', () => {
+        let value = parseInt(quantityInput.value);
+        if (value < 99) quantityInput.value = value + 1;
+    });
+    quantityInput.addEventListener('change', () => {
+        let value = parseInt(quantityInput.value);
+        if (isNaN(value) || value < 1) quantityInput.value = 1;
+        if (value > 99) quantityInput.value = 99;
+    });
+}
+
+// Añadir al carrito (igual que en index, pero con cantidad)
+document.getElementById('add-to-cart-btn').addEventListener('click', async function() {
+    const productId = document.getElementById('product-id').value;
+    const quantity = parseInt(document.getElementById('quantity').value) || 1;
+    const isLoggedIn = document.getElementById('user-status').value === 'true';
+    if (!isLoggedIn) {
+        window.location.href = '/login';
+        return;
+    }
+    try {
+        const response = await fetch('/api/cart/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                product_id: productId,
+                quantity: quantity
+            })
+        });
+        if (!response.ok) {
+            throw new Error('Error al añadir al carrito');
+        }
+        // Mostrar mensaje de éxito
+        const alertDiv = document.createElement('div');
+        alertDiv.className = 'alert alert-success alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-3';
+        alertDiv.style.zIndex = '1050';
+        alertDiv.innerHTML = `
+            <i class="fas fa-check-circle me-2"></i>Producto añadido al carrito
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+        document.body.appendChild(alertDiv);
+        // Actualizar contador del carrito
+        if (typeof updateCartCount === 'function') await updateCartCount();
+        setTimeout(() => { alertDiv.remove(); }, 3000);
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error al añadir el producto al carrito');
+    }
+});
+</script>
+{% endblock %}

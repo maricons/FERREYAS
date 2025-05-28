@@ -1,0 +1,6 @@
+.cursor/
+__pycache__/
+*.pyc
+venv/
+.env
+*.db 

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprobante de Pago - Ferremas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #eee;
+        }
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .order-details {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .order-item {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+        .total {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 20px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 2px solid #eee;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Ferremas</h1>
+        <p>Comprobante de Pago</p>
+    </div>
+
+    <div class="success-message">
+        ¡Tu pago ha sido procesado exitosamente!
+    </div>
+
+    <div class="order-details">
+        <h2>Detalles de la Orden</h2>
+        <p><strong>Número de Orden:</strong> {{ order.id }}</p>
+        <p><strong>Fecha:</strong> {{ order.created_at.strftime('%d/%m/%Y %H:%M:%S') }}</p>
+        
+        <h3>Productos:</h3>
+        {% for item in order.items %}
+        <div class="order-item">
+            <p><strong>{{ item.product.name }}</strong></p>
+            <p>Cantidad: {{ item.quantity }}</p>
+            <p>Precio unitario: ${{ "{:,.0f}".format(item.price_at_time | float) }}</p>
+            <p>Subtotal: ${{ "{:,.0f}".format((item.quantity * item.price_at_time) | float) }}</p>
+        </div>
+        {% endfor %}
+
+        <div class="total">
+            {% set total_float = order.total_amount | float %}
+            {% set subtotal = (total_float / 1.19) | round %}
+            {% set iva = total_float - subtotal %}
+            <p>Subtotal (Neto): ${{ "{:,.0f}".format(subtotal) }}</p>
+            <p>IVA (19%): ${{ "{:,.0f}".format(iva) }}</p>
+            <p>Total (IVA incluido): ${{ "{:,.0f}".format(total_float) }}</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Gracias por tu compra en Ferremas</p>
+        <p>Si tienes alguna pregunta, no dudes en contactarnos</p>
+        <p>© {{ current_year }} Ferremas. Todos los derechos reservados.</p>
+    </div>
+</body>
+</html> 

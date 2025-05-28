@@ -1,0 +1,50 @@
+2025-05-19 20:54:53,297 - werkzeug - WARNING -  * Debugger is active!
+2025-05-19 20:54:53,301 - werkzeug - INFO -  * Debugger PIN: 573-029-361
+2025-05-19 20:55:11,874 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Usuario\\Desktop\\FERREMAS\\flask-app\\app.py', reloading
+2025-05-19 20:55:13,810 - werkzeug - WARNING -  * Debugger is active!
+2025-05-19 20:55:13,813 - werkzeug - INFO -  * Debugger PIN: 573-029-361
+2025-05-19 20:55:20,187 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Usuario\\Desktop\\FERREMAS\\flask-app\\auth.py', reloading
+2025-05-19 20:55:21,613 - werkzeug - WARNING -  * Debugger is active!
+2025-05-19 20:55:21,615 - werkzeug - INFO -  * Debugger PIN: 573-029-361
+2025-05-19 20:56:12,149 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Usuario\\Desktop\\FERREMAS\\flask-app\\auth.py', reloading
+2025-05-19 20:56:14,201 - werkzeug - WARNING -  * Debugger is active!
+2025-05-19 20:56:14,206 - werkzeug - INFO -  * Debugger PIN: 573-029-361
+2025-05-19 20:56:51,345 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-19 20:56:51,345 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-19 20:56:59,268 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:56:59] "GET /product/1 HTTP/1.1" 200 -
+2025-05-19 20:56:59,328 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:56:59] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-05-19 20:56:59,465 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:56:59] "[36mGET /static/js/cart.js HTTP/1.1[0m" 304 -
+2025-05-19 20:56:59,495 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:56:59] "[36mGET /static/images/product1.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:56:59,499 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:56:59] "[36mGET /static/css/navbar.css HTTP/1.1[0m" 304 -
+2025-05-19 20:56:59,552 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:56:59] "[33mGET /api/cart HTTP/1.1[0m" 404 -
+2025-05-19 20:57:00,900 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Usuario\\Desktop\\FERREMAS\\flask-app\\test_google_auth.py', reloading
+2025-05-19 20:57:02,237 - werkzeug - WARNING -  * Debugger is active!
+2025-05-19 20:57:02,240 - werkzeug - INFO -  * Debugger PIN: 573-029-361
+2025-05-19 20:57:02,453 - __main__ - INFO - Adding to cart for user_id: 48967
+2025-05-19 20:57:02,466 - __main__ - ERROR - User with ID 48967 not found in database
+2025-05-19 20:57:02,467 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:02] "[33mPOST /api/cart/add HTTP/1.1[0m" 404 -
+2025-05-19 20:57:28,868 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-19 20:57:28,868 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-19 20:57:34,400 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:34] "GET / HTTP/1.1" 200 -
+2025-05-19 20:57:34,433 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:34] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-05-19 20:57:34,616 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:34] "[36mGET /static/css/navbar.css HTTP/1.1[0m" 304 -
+2025-05-19 20:57:34,622 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:34] "[36mGET /static/js/cart.js HTTP/1.1[0m" 304 -
+2025-05-19 20:57:34,623 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:34] "[36mGET /static/images/product3.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:57:34,634 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:34] "[36mGET /static/images/no-image.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:57:34,638 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:34] "[36mGET /static/images/product4.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:57:34,646 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:34] "[36mGET /static/images/product2.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:57:34,648 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:34] "[36mGET /static/images/product1.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:57:34,687 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:34] "[33mGET /api/cart HTTP/1.1[0m" 404 -
+2025-05-19 20:57:36,519 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:36] "GET / HTTP/1.1" 200 -
+2025-05-19 20:57:36,546 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:36] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-05-19 20:57:36,565 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:36] "[36mGET /static/images/product1.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:57:36,565 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:36] "[36mGET /static/css/navbar.css HTTP/1.1[0m" 304 -
+2025-05-19 20:57:36,571 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:36] "[36mGET /static/images/product2.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:57:36,573 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:36] "[36mGET /static/images/product3.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:57:36,579 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:36] "[36mGET /static/images/no-image.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:57:36,580 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:36] "[36mGET /static/images/product4.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:57:36,584 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:36] "[36mGET /static/js/cart.js HTTP/1.1[0m" 304 -
+2025-05-19 20:57:36,632 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:57:36] "[33mGET /api/cart HTTP/1.1[0m" 404 -
+2025-05-19 21:04:07,673 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:04:07] "[31m[1mGET /api/cart HTTP/1.1[0m" 401 -
